@@ -5,9 +5,9 @@ import express, { Request, Response } from 'express';
 import authJwt from '../middleware/authJwt';
 import Permission from '../models/Permission';
 import RessourceController from '../controllers/RessourceController';
-import authRouter from './authRouter';
-import userRouter from './userRouter';
-import roleRouter from './roleRouter';
+import authRouter from './uthRouter';
+import userRouter from './serRouter';
+import roleRouter from './oleRouter';
 
 const router = express.Router();
 
