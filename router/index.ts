@@ -3,11 +3,10 @@
 
 import express, { Request, Response } from 'express';
 import authJwt from '../middleware/authJwt';
-import Permission from '../models/Permission';
-import RessourceController from '../controllers/RessourceController';
-import authRouter from './uthRouter';
-import userRouter from './serRouter';
-import roleRouter from './oleRouter';
+import AuthRouter from './AuthRouter';
+import UserRouter from './UserRouter';
+import RoleRouter from './RoleRouter';
+import RessourceRouter from './RessourceRouter';
 
 const router = express.Router();
 
@@ -15,19 +14,10 @@ router.get('/', (_: Request, res: Response) => {
   res.send('HELLO WORD !!');
 });
 
-router.use('/auth', authRouter);
-router.use('/users', userRouter);
-router.use('/roles', roleRouter);
-
-/**
- * ressources routes
- */
-
-router.get(
-  '/ressources',
-  [authJwt.shouldBeLogged, authJwt.shouldHavePermission(Permission.RESSOURCE.READ)],
-  RessourceController.index as any,
-);
+router.use('/auth', AuthRouter);
+router.use('/users', UserRouter);
+router.use('/roles', RoleRouter);
+router.use('/ressources', RessourceRouter);
 
 // ----------
 
