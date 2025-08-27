@@ -16,6 +16,7 @@ export default class Permission extends Model {
     READ: 'USER:READ',
     DELETE: 'USER:DELETE',
     UPDATE: 'USER:UPDATE',
+    ALL: 'USER:ALL',
   };
 
   static ROLE = {
@@ -23,10 +24,12 @@ export default class Permission extends Model {
     READ: 'ROLE:READ',
     DELETE: 'ROLE:DELETE',
     UPDATE: 'ROLE:UPDATE',
+    ALL: 'ROLE:ALL',
   };
 
   static RESSOURCE = {
-    READ: 'ROLE:READ',
+    READ: 'RESSOURCE:READ',
+    ALL: 'RESSOURCE:ALL',
   };
 
   @ForeignKey(() => Ressource)

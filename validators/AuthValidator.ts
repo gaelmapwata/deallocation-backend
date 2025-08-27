@@ -1,6 +1,6 @@
 import ValidatorHelper from './helpers/ValidatorHelper';
 
-const authValidators = {
+const AuthValidators = {
   signinSchema: {
     email: new ValidatorHelper('email')
       .notEmpty()
@@ -12,4 +12,4 @@ const authValidators = {
   },
 };
 
-export default authValidators;
+export default AuthValidators;

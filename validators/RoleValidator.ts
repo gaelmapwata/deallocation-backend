@@ -2,7 +2,7 @@ import Permission from '../models/Permission';
 import Role from '../models/Role';
 import ValidatorHelper from './helpers/ValidatorHelper';
 
-const roleValidators = {
+const RoleValidators = {
   storeSchema: {
     name: new ValidatorHelper('nom')
       .notEmpty()
@@ -35,4 +35,4 @@ const roleValidators = {
   },
 };
 
-export default roleValidators;
+export default RoleValidators;

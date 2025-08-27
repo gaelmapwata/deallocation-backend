@@ -1,9 +1,9 @@
 import { OptionalOptions } from 'express-validator/src/chain';
 import { IsFloatOptions } from 'express-validator/src/options';
-import { ModelStatic } from '../../types/model';
-import { ExpressValidation, ExpressValidationCustomOptions } from '../../types/validator';
+import { ModelStatic } from '../../types/odel';
+import { ExpressValidation, ExpressValidationCustomOptions } from '../../types/alidator';
 import ValidatorChain from './ValidatorChain';
-import { Request } from '../../types/expressOverride';
+import { Request } from '../../types/ExpressOverride';
 
 export default class ValidatorHelper {
   private field: string;

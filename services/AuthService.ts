@@ -1,4 +1,4 @@
-import { Request } from '../types/expressOverride';
+import { Request } from '../types/ExpressOverride';
 
 const AuthService = {
   getAuthorizationHeader(req: Request): string | undefined {

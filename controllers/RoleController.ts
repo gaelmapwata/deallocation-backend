@@ -3,8 +3,8 @@ import { checkSchema } from 'express-validator';
 import Role from '../models/Role';
 import Permission from '../models/Permission';
 import Ressource from '../models/Ressource';
-import roleValidators from '../validators/role.validator';
-import { handleExpressValidators } from '../utils/express.util';
+import RoleValidators from '../validators/RoleValidator';
+import { handleExpressValidators } from '../utils/ExpressUtil';
 
 function groupPermissionsByRessources(permissions: Permission[]): Ressource[] {
   const ressources: Ressource[] = [];
@@ -42,7 +42,7 @@ export default {
   },
 
   store: [
-    checkSchema(roleValidators.storeSchema),
+    checkSchema(RoleValidators.storeSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {
@@ -74,7 +74,7 @@ export default {
   },
 
   addPermissions: [
-    checkSchema(roleValidators.addPermissionSchema),
+    checkSchema(RoleValidators.addPermissionSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {
@@ -96,7 +96,7 @@ export default {
   ],
 
   updatePermissions: [
-    checkSchema(roleValidators.updatePermissionSchema),
+    checkSchema(RoleValidators.updatePermissionSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {
@@ -118,7 +118,7 @@ export default {
   ],
 
   update: [
-    checkSchema(roleValidators.updateSchema),
+    checkSchema(RoleValidators.updateSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {

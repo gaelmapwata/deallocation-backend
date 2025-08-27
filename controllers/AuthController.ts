@@ -1,9 +1,9 @@
 import { Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { checkSchema } from 'express-validator';
-import authValidators from '../validators/auth.validator';
-import { Request } from '../types/expressOverride';
-import { handleExpressValidators } from '../utils/express.util';
+import AuthValidators from '../validators/AuthValidator';
+import { Request } from '../types/ExpressOverride';
+import { handleExpressValidators } from '../utils/ExpressUtil';
 import User from '../models/User';
 import Role from '../models/Role';
 import Permission from '../models/Permission';
@@ -18,7 +18,7 @@ const TOKEN_EXPIRATION_TIME_IN_SECONDS = 24 * 60 * 60; // 1 day
 
 export default {
   signin: [
-    checkSchema(authValidators.signinSchema),
+    checkSchema(AuthValidators.signinSchema),
     async (req: Request, res: Response) => {
       if (handleExpressValidators(req, res)) {
         return null;

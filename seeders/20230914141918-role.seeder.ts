@@ -13,9 +13,9 @@ const ROLES: IRole[] = [
   {
     name: 'admin',
     permissions: [
-      'ROLE:ALL',
-      'USER:ALL',
-      'RESSOURCE:ALL',
+      Permission.ROLE.ALL,
+      Permission.USER.ALL,
+      Permission.RESSOURCE.ALL,
     ],
   },
   {

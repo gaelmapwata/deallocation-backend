@@ -2,7 +2,7 @@
 import { QueryInterface } from 'sequelize';
 import sequelize from '../sequelize-instance';
 import User from '../models/User';
-import { bcryptHashPassword } from '../utils/bcrypt.util';
+import BcryptUtil from '../utils/BcryptUtil';
 import Role from '../models/Role';
 
 interface IUserPayload {
@@ -36,7 +36,7 @@ const USERS: IUserPayload[] = [
 
 async function saveUser(user: IUserPayload, role: Role | undefined) {
   try {
-    const hashedPassword = await bcryptHashPassword(user.password);
+    const hashedPassword = await BcryptUtil.hashPassword(user.password);
     const [newUser] = await User.findOrCreate({
       where: { email: user.email },
       defaults: {

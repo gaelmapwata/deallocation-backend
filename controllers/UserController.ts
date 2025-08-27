@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { checkSchema } from 'express-validator';
 import User from '../models/User';
-import userValidators from '../validators/user.validator';
-import { bcryptHashPassword } from '../utils/bcrypt.util';
-import { handleExpressValidators } from '../utils/express.util';
+import UserValidators from '../validators/UserValidator';
+import BcryptUtil from '../utils/BcryptUtil';
+import { handleExpressValidators } from '../utils/ExpressUtil';
 
 export default {
   index: async (req: Request, res: Response) => {
@@ -37,14 +37,14 @@ export default {
   },
 
   store: [
-    checkSchema(userValidators.storeSchema),
+    checkSchema(UserValidators.storeSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {
           return null;
         }
 
-        const hashedPassword = await bcryptHashPassword(req.body.password);
+        const hashedPassword = await BcryptUtil.hashPassword(req.body.password);
         const user = await User.create({
           ...req.body,
           password: hashedPassword,
@@ -77,7 +77,7 @@ export default {
   },
 
   update: [
-    checkSchema(userValidators.updateSchema),
+    checkSchema(UserValidators.updateSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {
@@ -87,7 +87,7 @@ export default {
         const { id } = req.params;
 
         if (req.body.password) {
-          req.body.password = await bcryptHashPassword(req.body.password);
+          req.body.password = await BcryptUtil.hashPassword(req.body.password);
         } else {
           delete req.body.password;
         }
@@ -116,7 +116,7 @@ export default {
   ],
 
   addRoles: [
-    checkSchema(userValidators.addRolesSchema),
+    checkSchema(UserValidators.addRolesSchema),
     async (req: Request, res: Response) => {
       try {
         if (handleExpressValidators(req, res)) {

@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
-import { Request } from '../types/expressOverride';
+import { Request } from '../types/ExpressOverride';
 
 // Configure le rate limiter
 const limiter = rateLimit({
@@ -11,5 +11,5 @@ const limiter = rateLimit({
 });
 
 export default {
-  rateLimitMiddleware: (req: Request, res: Response, next: NextFunction) => limiter(req, res, next),
+  rateLimit: (req: Request, res: Response, next: NextFunction) => limiter(req, res, next),
 };

@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import express, { Request, Response } from 'express';
-import authJwt from '../middleware/authJwt';
+import AuthMiddleware from '../middleware/AuthMiddleware';
 import AuthRouter from './AuthRouter';
 import UserRouter from './UserRouter';
 import RoleRouter from './RoleRouter';
@@ -21,7 +21,7 @@ router.use('/ressources', RessourceRouter);
 
 // ----------
 
-router.get('/protected', [authJwt.shouldBeLogged], (_: Request, res: Response) => {
+router.get('/protected', [AuthMiddleware.shouldBeLogged], (_: Request, res: Response) => {
   res.send('You have access to protected content !! ');
 });
 

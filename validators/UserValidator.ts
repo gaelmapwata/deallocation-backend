@@ -2,7 +2,7 @@ import Role from '../models/Role';
 import User from '../models/User';
 import ValidatorHelper from './helpers/ValidatorHelper';
 
-const userValidators = {
+const UserValidators = {
   storeSchema: {
     email: new ValidatorHelper('email')
       .notEmpty()
@@ -32,4 +32,4 @@ const userValidators = {
 
 };
 
-export default userValidators;
+export default UserValidators;
