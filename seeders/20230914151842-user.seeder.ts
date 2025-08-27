@@ -9,6 +9,8 @@ interface IUserPayload {
   email: string;
   password: string;
   roleName: string;
+  firstName: string;
+  lastName: string;
 }
 
 const USERS: IUserPayload[] = [
@@ -16,21 +18,29 @@ const USERS: IUserPayload[] = [
     email: 'admin@user.com',
     password: '1234',
     roleName: 'admin',
+    firstName: 'John',
+    lastName: 'Doe',
   },
   {
     email: 'user1@user.com',
     password: '1234',
     roleName: 'user',
+    firstName: 'User1',
+    lastName: 'User',
   },
   {
     email: 'user2@user.com',
     password: '1235',
     roleName: 'user',
+    firstName: 'User2',
+    lastName: 'User',
   },
   {
     email: 'user3@user.com',
     password: '1236',
     roleName: 'user',
+    firstName: 'User3',
+    lastName: 'User',
   },
 ];
 
@@ -41,6 +51,8 @@ async function saveUser(user: IUserPayload, role: Role | undefined) {
       where: { email: user.email },
       defaults: {
         email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
         password: hashedPassword,
       },
     });

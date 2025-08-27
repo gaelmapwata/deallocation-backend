@@ -29,7 +29,7 @@ export default {
       );
 
       if (!userToLogin) {
-        return res.status(401).send({ message: "Ce compte n'a pas été retrouvé" });
+        return res.status(401).send({ message: 'Identifiants incorrects' });
       }
 
       const passwordIsValid = bcrypt.compareSync(
@@ -40,13 +40,13 @@ export default {
       if (!passwordIsValid) {
         return res.status(401).send({
           token: null,
-          message: 'Mot de passe invalide',
+          message: 'Identifiants incorrects',
         });
       }
 
       const token = jwt.sign({
         id: userToLogin.id,
-        type: TokenTypeE.LOGGED_TOKEN,
+        type: TokenTypeE.LOGIN_TOKEN,
       }, process.env.JWT_SECRET, {
         expiresIn: TOKEN_EXPIRATION_TIME_IN_SECONDS,
       });
@@ -74,7 +74,7 @@ export default {
   logout: async (req: Request, res: Response) => {
     try {
       const token = AuthService.getLoggedToken(req);
-      const blacklistToken = await BlacklistToken.create({ token, type: TokenTypeE.LOGGED_TOKEN });
+      const blacklistToken = await BlacklistToken.create({ token, type: TokenTypeE.LOGIN_TOKEN });
       return res.status(201).json(blacklistToken);
     } catch (error) {
       return res.status(500).json(error);

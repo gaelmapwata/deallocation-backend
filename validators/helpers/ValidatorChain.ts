@@ -1,4 +1,4 @@
-import { ExpressValidation } from '../../types/alidator';
+import { ExpressValidation } from '../../types/Validator';
 
 export default class ValidatorChain {
   private validations: ExpressValidation = {};

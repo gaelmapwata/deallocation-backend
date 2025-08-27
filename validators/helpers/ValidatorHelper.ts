@@ -1,7 +1,7 @@
 import { OptionalOptions } from 'express-validator/src/chain';
 import { IsFloatOptions } from 'express-validator/src/options';
-import { ModelStatic } from '../../types/odel';
-import { ExpressValidation, ExpressValidationCustomOptions } from '../../types/alidator';
+import { ModelStatic } from '../../types/Model';
+import { ExpressValidation, ExpressValidationCustomOptions } from '../../types/Validator';
 import ValidatorChain from './ValidatorChain';
 import { Request } from '../../types/ExpressOverride';
 

@@ -41,7 +41,7 @@ export default {
         });
       }
 
-      if (!decoded.type || decoded.type !== TokenTypeE.LOGGED_TOKEN) {
+      if (!decoded.type || decoded.type !== TokenTypeE.LOGIN_TOKEN) {
         return res.status(409).json({
           msg: 'Invalid token',
         });
