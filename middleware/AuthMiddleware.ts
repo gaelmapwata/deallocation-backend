@@ -36,29 +36,29 @@ export default {
 
     return jwt.verify(token, process.env.JWT_SECRET, (err: null, decoded: TokenDecodedI) => {
       if (err) {
-        return res.status(401).json({
-          message: 'Veuillez vous connectez !',
-        });
+        return res.status(401).json({ message: 'Veuillez vous connectez !' });
       }
 
       if (!decoded.type || decoded.type !== TokenTypeE.LOGIN_TOKEN) {
         return res.status(409).json({
-          msg: 'Invalid token',
+          message: 'Invalid token',
         });
       }
 
       return User
         .findByPk(decoded.id, { include: [{ model: Role, include: [Permission] }] })
         .then((user) => {
-          if (!user) {
-            return res.status(401).json({
-              msg: 'This account has not been found',
+          if (user && !user.locked) {
+            req.userId = decoded.id;
+            req.user = user;
+            next();
+          } else {
+            res.status(401).json({
+              message: user?.locked
+                ? 'Votre compte est bloqué, veuillez contacter l\'administrateur !'
+                : 'Veuillez vous connectez !',
             });
           }
-
-          req.userId = decoded.id;
-          req.user = user;
-          return next();
         });
     });
   },

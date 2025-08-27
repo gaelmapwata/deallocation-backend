@@ -127,7 +127,7 @@ export default {
 
         const user = await User.findByPk(req.params.id);
         if (!user) {
-          return res.status(404).json({ msg: 'L\'utilisateur n\'a pas été retrouver' });
+          return res.status(404).json({ message: 'L\'utilisateur n\'a pas été retrouver' });
         }
 
         const { roles } = req.body;
@@ -151,4 +151,46 @@ export default {
       return res.status(500).json(error);
     }
   },
+
+  lockUser: [
+    async (req: Request, res: Response) => {
+      try {
+        const { id } = req.params;
+
+        await User.update(
+          { locked: true },
+          { where: { id } },
+        );
+
+        const user = await User.findByPk(id, {
+          attributes: { exclude: ['password'] },
+        });
+
+        return res.status(200).json(user);
+      } catch (error) {
+        return res.status(500).json(error);
+      }
+    },
+  ],
+
+  unlockUser: [
+    async (req: Request, res: Response) => {
+      try {
+        const { id } = req.params;
+
+        await User.update(
+          { locked: false },
+          { where: { id } },
+        );
+
+        const user = await User.findByPk(id, {
+          attributes: { exclude: ['password'] },
+        });
+
+        return res.status(200).json(user);
+      } catch (error) {
+        return res.status(500).json(error);
+      }
+    },
+  ],
 };

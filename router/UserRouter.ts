@@ -46,5 +46,21 @@ router.delete(
   ],
   UserController.delete,
 );
+router.put(
+  '/:id/lock',
+  [
+    AuthMiddleware.shouldBeLogged,
+    AuthMiddleware.shouldHavePermission(Permission.USER.UPDATE),
+  ],
+  UserController.lockUser,
+);
+router.put(
+  '/:id/unlock',
+  [
+    AuthMiddleware.shouldBeLogged,
+    AuthMiddleware.shouldHavePermission(Permission.USER.UPDATE),
+  ],
+  UserController.unlockUser,
+);
 
 export default router;

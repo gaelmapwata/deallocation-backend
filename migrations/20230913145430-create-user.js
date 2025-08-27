@@ -16,10 +16,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      username: {
+        type: Sequelize.STRING,
+      },
       email: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false,
+      },
+      locked: {
+        type: Sequelize.BOOLEAN,
       },
       password: {
         type: Sequelize.STRING,

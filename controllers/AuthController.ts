@@ -1,5 +1,4 @@
 import { Response } from 'express';
-import bcrypt from 'bcryptjs';
 import { checkSchema } from 'express-validator';
 import AuthValidators from '../validators/AuthValidator';
 import { Request } from '../types/ExpressOverride';
@@ -10,6 +9,10 @@ import Permission from '../models/Permission';
 import BlacklistToken from '../models/BlacklistToken';
 import { TokenTypeE } from '../types/Token';
 import AuthService from '../services/AuthService';
+import BcryptUtil from '../utils/BcryptUtil';
+import InvalidPasswordError from '../types/error/InvalidPasswordError';
+import UserNotFoundError from '../types/error/UserNotFoundError';
+import UserLockedError from '../types/error/UserLockedError';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const jwt = require('jsonwebtoken');
@@ -20,40 +23,39 @@ export default {
   signin: [
     checkSchema(AuthValidators.signinSchema),
     async (req: Request, res: Response) => {
-      if (handleExpressValidators(req, res)) {
-        return null;
-      }
+      try {
+        if (handleExpressValidators(req, res)) {
+          return null;
+        }
 
-      const userToLogin = await User.findOne(
-        { where: { email: req.body.email } },
-      );
-
-      if (!userToLogin) {
-        return res.status(401).send({ message: 'Identifiants incorrects' });
-      }
-
-      const passwordIsValid = bcrypt.compareSync(
-        req.body.password,
-        userToLogin.password,
-      );
-
-      if (!passwordIsValid) {
-        return res.status(401).send({
-          token: null,
-          message: 'Identifiants incorrects',
+        const userToLogin = await AuthService.checkUserPasswordValidity({
+          email: req.body.email,
+          username: req.body.username,
+          password: req.body.password,
         });
-      }
 
-      const token = jwt.sign({
-        id: userToLogin.id,
-        type: TokenTypeE.LOGIN_TOKEN,
-      }, process.env.JWT_SECRET, {
-        expiresIn: TOKEN_EXPIRATION_TIME_IN_SECONDS,
-      });
-      return res.status(200).json({
-        user: userToLogin,
-        token,
-      });
+        const token = jwt.sign({
+          id: userToLogin.id,
+          type: TokenTypeE.LOGIN_TOKEN,
+        }, process.env.JWT_SECRET, {
+          expiresIn: TOKEN_EXPIRATION_TIME_IN_SECONDS,
+        });
+        return res.status(200).json({
+          user: userToLogin,
+          token,
+        });
+      } catch (error) {
+        if (
+          error instanceof UserNotFoundError
+          || error instanceof InvalidPasswordError
+        ) {
+          return res.status(401).json({ message: 'Identifiants invalides' });
+        } if (error instanceof UserLockedError) {
+          return res.status(423).json({ message: error.message });
+        }
+
+        return res.status(500).json(error);
+      }
     },
   ],
   getCurrentUser: async (req: Request, res: Response) => {
@@ -62,7 +64,7 @@ export default {
         include: [{ model: Role, include: [Permission] }],
       });
       if (!loggedUser) {
-        return res.status(401).send({ msg: "Ce compte n'a pas été retrouvé" });
+        return res.status(401).send({ message: "Ce compte n'a pas été retrouvé" });
       }
 
       return res.status(200).json(loggedUser);
@@ -80,4 +82,36 @@ export default {
       return res.status(500).json(error);
     }
   },
+
+  changePassword: [
+    checkSchema(AuthValidators.changePasswordSchema),
+    async (req: Request, res: Response) => {
+      try {
+        if (handleExpressValidators(req, res)) {
+          return null;
+        }
+
+        const user = await AuthService.checkUserPasswordValidity({
+          email: req.user?.email,
+          username: req.user?.username,
+          password: req.body.oldPassword,
+        });
+
+        const hashedPassword = await BcryptUtil.hashPassword(req.body.newPassword);
+        user.password = hashedPassword;
+        await user.save();
+
+        return res.status(200).json(user);
+      } catch (error) {
+        if (error instanceof UserNotFoundError) {
+          return res.status(401).json({ message: error.message });
+        }
+
+        if (error instanceof InvalidPasswordError) {
+          return res.status(422).json({ message: error.message });
+        }
+        return res.status(500).json(error);
+      }
+    },
+  ],
 };
