@@ -9,6 +9,13 @@ const UserValidators = {
       .isEmail()
       .notExistsInDB(User, 'email')
       .get(),
+    username: new ValidatorHelper('nom d\'utilisateur')
+      .optional()
+      .isString()
+      .notExistsInDB(User, 'username')
+      .get(),
+    firstName: new ValidatorHelper('Prénom').isString().notEmpty().get(),
+    lastName: new ValidatorHelper('Nom').isString().notEmpty().get(),
     password: new ValidatorHelper('mot de passe').notEmpty().isString().get(),
     roles: new ValidatorHelper('roles').optional().isArray().get(),
     'roles.*': new ValidatorHelper('role').isInt().existsInDB(Role, 'id').get(),
@@ -20,6 +27,13 @@ const UserValidators = {
       .isEmail()
       .notExistsInDBIfUpdated(User, 'email')
       .get(),
+    username: new ValidatorHelper('nom d\'utilisateur')
+      .optional()
+      .isString()
+      .notExistsInDBIfUpdated(User, 'username')
+      .get(),
+    firstName: new ValidatorHelper('Prénom').optional().isString().get(),
+    lastName: new ValidatorHelper('Nom').optional().isString().get(),
     password: new ValidatorHelper('mot de passe').optional().isString().get(),
     roles: new ValidatorHelper('roles').optional().isArray().get(),
     'roles.*': new ValidatorHelper('role').isInt().existsInDB(Role, 'id').get(),
