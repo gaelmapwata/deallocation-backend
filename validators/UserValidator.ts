@@ -10,8 +10,7 @@ const UserValidators = {
       .notExistsInDB(User, 'email')
       .get(),
     username: new ValidatorHelper('nom d\'utilisateur')
-      .optional()
-      .isString()
+      .optional({ nullable: true })
       .notExistsInDB(User, 'username')
       .get(),
     firstName: new ValidatorHelper('Prénom').isString().notEmpty().get(),
@@ -28,7 +27,7 @@ const UserValidators = {
       .notExistsInDBIfUpdated(User, 'email')
       .get(),
     username: new ValidatorHelper('nom d\'utilisateur')
-      .optional()
+      .optional({ nullable: true })
       .isString()
       .notExistsInDBIfUpdated(User, 'username')
       .get(),
