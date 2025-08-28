@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
-import { Request } from '../types/xpressOverride';
+import { Request } from '../types/ExpressOverride';
 
 // Configure le rate limiter
 const limiter = rateLimit({
