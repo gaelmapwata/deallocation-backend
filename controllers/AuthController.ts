@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { checkSchema } from 'express-validator';
 import AuthValidators from '../validators/AuthValidator';
-import type { Request } from '../types/ExpressOverride';
+import { Request } from '../types/xpressOverride';
 import { handleExpressValidators } from '../utils/ExpressUtil';
 import User from '../models/User';
 import Role from '../models/Role';

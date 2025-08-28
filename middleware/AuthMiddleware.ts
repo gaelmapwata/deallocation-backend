@@ -1,5 +1,5 @@
 import { Response, NextFunction } from 'express';
-import type { Request } from '../types/ExpressOverride';
+import { Request } from '../types/xpressOverride';
 import UserService from '../services/UserService';
 import { TokenDecodedI, TokenTypeE } from '../types/Token';
 import User from '../models/User';
