@@ -1,5 +1,5 @@
-import { OptionalOptions } from 'express-validator/src/chain';
-import { IsFloatOptions } from 'express-validator/src/options';
+import { OptionalOptions } from 'express-validator/lib/chain';
+import { IsFloatOptions } from 'express-validator/lib/options';
 import { ModelStatic } from '../../types/Model';
 import { ExpressValidation, ExpressValidationCustomOptions } from '../../types/Validator';
 import ValidatorChain from './ValidatorChain';
@@ -143,7 +143,8 @@ export default class ValidatorHelper {
   private existInDBGeneratorFunc(model: ModelStatic, column: string) : ExpressValidationCustomOptions {
     return {
       options: async (value: string | number) => {
-        if (value !== null && !await model.findOne({ where: { [column]: value } })) {
+        const item = await model.findOne({ where: { [column]: value } });
+        if (value !== null && !item) {
           throw new Error(`L'enregistrement correspondant pour "${this.field}" n'a pas été retrouvé`);
         }
       },

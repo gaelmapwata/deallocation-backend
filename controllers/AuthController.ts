@@ -14,7 +14,7 @@ import InvalidPasswordError from '../types/error/InvalidPasswordError';
 import UserNotFoundError from '../types/error/UserNotFoundError';
 import UserLockedError from '../types/error/UserLockedError';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line
 const jwt = require('jsonwebtoken');
 
 const TOKEN_EXPIRATION_TIME_IN_SECONDS = 24 * 60 * 60; // 1 day

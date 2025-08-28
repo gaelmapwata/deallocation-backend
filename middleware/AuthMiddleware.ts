@@ -8,7 +8,7 @@ import Permission from '../models/Permission';
 import AuthService from '../services/AuthService';
 import BlacklistTokenService from '../services/BlacklistTokenService';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line
 const jwt = require('jsonwebtoken');
 
 export default {
