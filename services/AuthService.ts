@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
 import bcrypt from 'bcryptjs';
 import User from '../models/User';
-import { Request } from '../types/ExpressOverride';
+import type { Request } from '../types/ExpressOverride';
 import InvalidPasswordError from '../types/error/InvalidPasswordError';
 import UserLockedError from '../types/error/UserLockedError';
 import UserNotFoundError from '../types/error/UserNotFoundError';

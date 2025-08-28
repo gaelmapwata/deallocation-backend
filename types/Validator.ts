@@ -1,5 +1,6 @@
-import { OptionalOptions } from 'express-validator/src/chain';
-import { IsFloatOptions, IsIntOptions } from 'express-validator/src/options';
+import { OptionalOptions } from "express-validator/lib/chain"
+import { IsFloatOptions } from "express-validator/lib/options"
+import { IsIntOptions } from "validator"
 
 type ExpressValidationCustomOptionFunc =
   (value: (string | number), { req }: {req: unknown}) => (Promise<void> | void)
@@ -8,7 +9,7 @@ export type ExpressValidationCustomOptions = {
   options : ExpressValidationCustomOptionFunc
 }
 
-export type ExpressValidation =
+export type ExpressValidation = 
   Partial<Record<'isFloat', { errorMessage: string, options?: IsFloatOptions }>> &
   Partial<Record<'notEmpty' | 'isDecimal' | 'isString' | 'isArray' | 'exists' | 'isEmail' | 'isMobilePhone', { errorMessage: string }>> &
   Partial<Record<'custom', ExpressValidationCustomOptions>> &
