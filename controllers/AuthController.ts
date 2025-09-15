@@ -10,7 +10,7 @@ import BlacklistToken from '../models/BlacklistToken';
 import { TokenTypeE } from '../types/Token';
 import AuthService from '../services/AuthService';
 import BcryptUtil from '../utils/BcryptUtil';
-import InvalidPasswordError from '../types/error/InvalidPasswordError';
+import AuthInvalidPasswordError from '../types/error/AuthInvalidPasswordError';
 import UserNotFoundError from '../types/error/UserNotFoundError';
 import UserLockedError from '../types/error/UserLockedError';
 
@@ -47,7 +47,7 @@ export default {
       } catch (error) {
         if (
           error instanceof UserNotFoundError
-          || error instanceof InvalidPasswordError
+          || error instanceof AuthInvalidPasswordError
         ) {
           return res.status(401).json({ message: 'Identifiants invalides' });
         } if (error instanceof UserLockedError) {
@@ -75,7 +75,7 @@ export default {
 
   logout: async (req: Request, res: Response) => {
     try {
-      const token = AuthService.getLoggedToken(req);
+      const token = AuthService.getLoggedToken({ req });
       const blacklistToken = await BlacklistToken.create({ token, type: TokenTypeE.LOGIN_TOKEN });
       return res.status(201).json(blacklistToken);
     } catch (error) {
@@ -107,7 +107,7 @@ export default {
           return res.status(401).json({ message: error.message });
         }
 
-        if (error instanceof InvalidPasswordError) {
+        if (error instanceof AuthInvalidPasswordError) {
           return res.status(422).json({ message: error.message });
         }
         return res.status(500).json(error);

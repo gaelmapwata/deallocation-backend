@@ -26,7 +26,7 @@ const {
   database, username, password, host, dialect,
 } = config;
 
-export default new Sequelize(
+const sequelize = new Sequelize(
   database || '',
   username || '',
   password,
@@ -37,3 +37,5 @@ export default new Sequelize(
     logging: false,
   },
 );
+
+export default sequelize;

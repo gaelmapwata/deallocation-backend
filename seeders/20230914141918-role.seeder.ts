@@ -11,11 +11,18 @@ interface IRole {
 
 const ROLES: IRole[] = [
   {
-    name: 'admin',
+    name: 'super-admin',
     permissions: [
       Permission.ROLE.ALL,
       Permission.USER.ALL,
       Permission.RESSOURCE.ALL,
+    ],
+  },
+  {
+    name: 'admin',
+    permissions: [
+      Permission.ROLE.READ,
+      Permission.USER.ALL,
     ],
   },
   {

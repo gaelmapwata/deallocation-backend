@@ -1,66 +1,38 @@
 import { Response, NextFunction } from 'express';
 import { Request } from '../types/ExpressOverride';
 import UserService from '../services/UserService';
-import { TokenDecodedI, TokenTypeE } from '../types/Token';
-import User from '../models/User';
-import Role from '../models/Role';
-import Permission from '../models/Permission';
 import AuthService from '../services/AuthService';
-import BlacklistTokenService from '../services/BlacklistTokenService';
-
-// eslint-disable-next-line
-const jwt = require('jsonwebtoken');
+import AuthInvalidTokenError from '../types/error/AuthInvalidTokenError';
+import AuthNoTokenProvidedError from '../types/error/AuthNoTokenProvidedError';
+import AuthTokenBlacklistedError from '../types/error/AuthTokenBlacklistedError';
+import AuthUserLockedError from '../types/error/AuthUserLockedError';
+import AuthUserNotFoundError from '../types/error/AuthUserNotFoundError';
 
 export default {
   shouldBeLogged: async (req: Request, res: Response, next: NextFunction) => {
-    const tokenPrefix = AuthService.getLoggedTokenPrefix(req);
-    if (tokenPrefix !== 'Bearer') {
-      return res.sendStatus(401);
-    }
-
-    const token = AuthService.getLoggedToken(req);
-
-    if (!token) {
-      return res.status(403).json({
-        message: 'Pas de Token fournis !',
-      });
-    }
-
-    const isTokenBlacklisted = await BlacklistTokenService.isTokenBlacklisted(token);
-
-    if (isTokenBlacklisted) {
-      return res.status(409).json({
-        message: 'Session expirée, veuillez vous reconnecter !',
-      });
-    }
-
-    return jwt.verify(token, process.env.JWT_SECRET, (err: null, decoded: TokenDecodedI) => {
-      if (err) {
-        return res.status(401).json({ message: 'Veuillez vous connectez !' });
+    try {
+      const user = await AuthService.checkUserLoggedFromRequestToken({ req });
+      req.userId = user.id;
+      req.user = user;
+      return next();
+    } catch (error) {
+      if (error instanceof AuthInvalidTokenError
+        || error instanceof AuthUserNotFoundError
+        || error instanceof AuthUserLockedError
+      ) {
+        return res.status(401).json({ message: error.message });
       }
 
-      if (!decoded.type || decoded.type !== TokenTypeE.LOGIN_TOKEN) {
-        return res.status(409).json({
-          message: 'Invalid token',
-        });
+      if (error instanceof AuthNoTokenProvidedError) {
+        return res.status(403).json({ message: error.message });
       }
 
-      return User
-        .findByPk(decoded.id, { include: [{ model: Role, include: [Permission] }] })
-        .then((user) => {
-          if (user && !user.locked) {
-            req.userId = decoded.id;
-            req.user = user;
-            next();
-          } else {
-            res.status(401).json({
-              message: user?.locked
-                ? 'Votre compte est bloqué, veuillez contacter l\'administrateur !'
-                : 'Veuillez vous connectez !',
-            });
-          }
-        });
-    });
+      if (error instanceof AuthTokenBlacklistedError) {
+        return res.status(409).json({ message: error.message });
+      }
+
+      return res.status(500).json(error);
+    }
   },
 
   shouldParamIdBeLoggedUserId(req: Request, res: Response, next: NextFunction) {

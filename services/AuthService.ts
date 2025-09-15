@@ -2,22 +2,45 @@ import { Op } from 'sequelize';
 import bcrypt from 'bcryptjs';
 import User from '../models/User';
 import { Request } from '../types/ExpressOverride';
-import InvalidPasswordError from '../types/error/InvalidPasswordError';
+import AuthInvalidPasswordError from '../types/error/AuthInvalidPasswordError';
 import UserLockedError from '../types/error/UserLockedError';
 import UserNotFoundError from '../types/error/UserNotFoundError';
+import AuthInvalidTokenError from '../types/error/AuthInvalidTokenError';
+import AuthNoTokenProvidedError from '../types/error/AuthNoTokenProvidedError';
+import Permission from '../models/Permission';
+import Role from '../models/Role';
+import { TokenDecodedI, TokenTypeE } from '../types/Token';
+import AuthTokenBlacklistedError from '../types/error/AuthTokenBlacklistedError';
+import AuthUserLockedError from '../types/error/AuthUserLockedError';
+import AuthUserNotFoundError from '../types/error/AuthUserNotFoundError';
+import BlacklistTokenService from './BlacklistTokenService';
+
+// eslint-disable-next-line
+const jwt = require('jsonwebtoken');
 
 const AuthService = {
   getAuthorizationHeader(req: Request): string | undefined {
     const authHeader = req.headers.authorization;
     return authHeader;
   },
-  getLoggedTokenPrefix(req: Request): string | undefined {
-    const authHeader = AuthService.getAuthorizationHeader(req);
+
+  getLoggedTokenPrefix(payload: {req: Request} | { token: string}): string | undefined {
+    let authHeader: string;
+    if ('req' in payload) {
+      authHeader = AuthService.getAuthorizationHeader(payload.req) as string;
+    } else {
+      authHeader = payload.token;
+    }
     return authHeader ? authHeader.split(' ')[0] as string : undefined;
   },
 
-  getLoggedToken(req: Request): string | undefined {
-    const authHeader = AuthService.getAuthorizationHeader(req);
+  getLoggedToken(payload: {req: Request} | { token: string}): string | undefined {
+    let authHeader: string;
+    if ('req' in payload) {
+      authHeader = AuthService.getAuthorizationHeader(payload.req) as string;
+    } else {
+      authHeader = payload.token;
+    }
     return authHeader ? authHeader.split(' ')[1] as string : undefined;
   },
 
@@ -54,7 +77,7 @@ const AuthService = {
     );
 
     if (!passwordIsValid) {
-      throw new InvalidPasswordError('Mot de passe invalide');
+      throw new AuthInvalidPasswordError('Mot de passe invalide');
     }
 
     if (userToLogin.locked) {
@@ -62,6 +85,56 @@ const AuthService = {
     }
 
     return userToLogin;
+  },
+
+  checkTokenFromRequestToken(payload: {req: Request} | { token: string}): string {
+    const tokenPrefix = AuthService.getLoggedTokenPrefix(payload);
+    if (tokenPrefix !== 'Bearer') {
+      throw new AuthInvalidTokenError('Token invalid');
+    }
+
+    const token = AuthService.getLoggedToken(payload);
+
+    if (!token) {
+      throw new AuthNoTokenProvidedError('Pas de Token fournis !');
+    }
+
+    return token;
+  },
+
+  async checkUserLoggedFromRequestToken(payload: {req: Request} | { token: string}): Promise<User> {
+    const token = AuthService.checkTokenFromRequestToken(payload);
+
+    const isTokenBlacklisted = await BlacklistTokenService.isTokenBlacklisted(token);
+
+    if (isTokenBlacklisted) {
+      throw new AuthTokenBlacklistedError('Session expirée, veuillez vous reconnecter !');
+    }
+
+    return new Promise((resolve) => {
+      jwt.verify(token, process.env.JWT_SECRET, async (err: null, decoded: TokenDecodedI) => {
+        if (err) {
+          throw new AuthInvalidTokenError('Veuillez vous connectez !');
+        }
+
+        if (!decoded.type || decoded.type !== TokenTypeE.LOGIN_TOKEN) {
+          throw new AuthInvalidTokenError('Token invalid');
+        }
+
+        const user = await User
+          .findByPk(decoded.id, {
+            include: [{ model: Role, include: [Permission] }],
+          });
+
+        if (!user) {
+          throw new AuthUserNotFoundError('Veuillez vous connectez !');
+        } else if (user.locked) {
+          throw new AuthUserLockedError('Votre compte est bloqué, veuillez contacter l\'administrateur !');
+        } else {
+          resolve(user);
+        }
+      });
+    });
   },
 };
 
