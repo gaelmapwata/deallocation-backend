@@ -20,7 +20,7 @@ function groupPermissionsByRessources(permissions: Permission[]): Ressource[] {
       ressources.push(newRessource);
     }
   });
-  return ressources;
+  return ressources.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export default {

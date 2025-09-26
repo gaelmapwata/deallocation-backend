@@ -8,7 +8,15 @@ export default {
       include: [{ model: Role, include: [Permission] }],
     });
 
-    const userPermissions = user?.roles.flatMap((role) => role.permissions);
-    return !!userPermissions?.find((p) => permissions.includes(p.slug));
+    if (!user) {
+      return false;
+    }
+
+    const userPermissions = user.roles.flatMap((role) => role.permissions);
+
+    return permissions.some((permission) => {
+      const allPermissionSlug = `${permission.split(':')[0]}:ALL`;
+      return userPermissions.some((p) => p.slug === permission || p.slug === allPermissionSlug);
+    });
   },
 };
