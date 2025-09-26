@@ -10,7 +10,7 @@ router.get(
   '/',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.READ),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.READ),
   ],
   RoleController.index,
 );
@@ -18,7 +18,7 @@ router.post(
   '/',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.CREATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.CREATE),
   ],
   RoleController.store as any,
 );
@@ -26,7 +26,7 @@ router.post(
   '/:id/add-permissions',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.UPDATE),
   ],
   RoleController.addPermissions as any,
 );
@@ -34,7 +34,7 @@ router.post(
   '/:id/update-permissions',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.UPDATE),
   ],
   RoleController.updatePermissions as any,
 );
@@ -42,7 +42,7 @@ router.get(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.READ),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.READ),
   ],
   RoleController.show,
 );
@@ -50,7 +50,7 @@ router.put(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.UPDATE),
   ],
   RoleController.update as any,
 );
@@ -58,7 +58,7 @@ router.delete(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.ROLE.DELETE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.ROLE.DELETE),
   ],
   RoleController.delete,
 );

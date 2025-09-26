@@ -10,7 +10,7 @@ router.get(
   '/',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.USER.READ),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.READ),
   ],
   UserController.index,
 );
@@ -18,7 +18,7 @@ router.post(
   '/',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.USER.CREATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.CREATE),
   ],
   UserController.store as any,
 );
@@ -26,7 +26,7 @@ router.get(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermissionOrParamIdBeLoggedUserId(Permission.USER.READ),
+    AuthMiddleware.shouldHaveOneOfPermissionsOrParamIdBeLoggedUserId(Permission.USER.READ),
   ],
   UserController.show,
 );
@@ -34,7 +34,7 @@ router.put(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermissionOrParamIdBeLoggedUserId(Permission.USER.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissionsOrParamIdBeLoggedUserId(Permission.USER.UPDATE),
   ],
   UserController.update as any,
 );
@@ -42,7 +42,7 @@ router.delete(
   '/:id',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.USER.DELETE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.DELETE),
   ],
   UserController.delete,
 );
@@ -50,7 +50,7 @@ router.put(
   '/:id/lock',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.USER.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.UPDATE),
   ],
   UserController.lockUser,
 );
@@ -58,7 +58,7 @@ router.put(
   '/:id/unlock',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.USER.UPDATE),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.UPDATE),
   ],
   UserController.unlockUser,
 );

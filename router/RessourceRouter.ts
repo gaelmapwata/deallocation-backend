@@ -10,7 +10,7 @@ router.get(
   '/',
   [
     AuthMiddleware.shouldBeLogged,
-    AuthMiddleware.shouldHavePermission(Permission.RESSOURCE.READ),
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.RESSOURCE.READ),
   ],
   RessourceController.index as any,
 );

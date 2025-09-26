@@ -3,33 +3,8 @@ import { QueryInterface } from 'sequelize';
 import sequelize from '../sequelize-instance';
 import Role from '../models/Role';
 import Permission from '../models/Permission';
-
-interface IRole {
-  name: string;
-  permissions: string[]
-}
-
-const ROLES: IRole[] = [
-  {
-    name: 'super-admin',
-    permissions: [
-      Permission.ROLE.ALL,
-      Permission.USER.ALL,
-      Permission.RESSOURCE.ALL,
-    ],
-  },
-  {
-    name: 'admin',
-    permissions: [
-      Permission.ROLE.READ,
-      Permission.USER.ALL,
-    ],
-  },
-  {
-    name: 'user',
-    permissions: [],
-  },
-];
+import { RoleI } from '../types/Role';
+import ROLES from './data/roleData';
 
 module.exports = {
   async up() {
@@ -38,7 +13,7 @@ module.exports = {
         .then(async () => {
           const permissions = await Permission.findAll();
 
-          const saveRole = async (role: IRole): Promise<void> => new Promise((resolveRole) => {
+          const saveRole = async (role: RoleI): Promise<void> => new Promise((resolveRole) => {
             Role.findOrCreate({
               where: { name: role.name },
               defaults: { name: role.name },

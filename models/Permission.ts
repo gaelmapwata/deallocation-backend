@@ -11,6 +11,25 @@ import Role from './Role';
   paranoid: true,
 })
 export default class Permission extends Model {
+  @ForeignKey(() => Ressource)
+  @Column
+    ressourceId!: number;
+
+  @Column
+    name!: string;
+
+  @Column
+    slug!: string;
+
+  @Column
+    description?: string;
+
+  @BelongsTo(() => Ressource)
+    ressource!: Ressource;
+
+  @BelongsToMany(() => Role, () => PermissionRole)
+    roles!: Role[];
+
   static USER = {
     CREATE: 'USER:CREATE',
     READ: 'USER:READ',
@@ -27,24 +46,5 @@ export default class Permission extends Model {
     ALL: 'ROLE:ALL',
   };
 
-  static RESSOURCE = {
-    READ: 'RESSOURCE:READ',
-    ALL: 'RESSOURCE:ALL',
-  };
-
-  @ForeignKey(() => Ressource)
-  @Column
-    ressourceId!: number;
-
-  @Column
-    name!: string;
-
-  @Column
-    slug!: string;
-
-  @BelongsTo(() => Ressource)
-    ressource!: Ressource;
-
-  @BelongsToMany(() => Role, () => PermissionRole)
-    roles!: Role[];
+  static RESSOURCE = { READ: 'RESSOURCE:READ', ALL: 'RESSOURCE:ALL' };
 }

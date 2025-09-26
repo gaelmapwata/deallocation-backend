@@ -45,8 +45,9 @@ export default {
   },
 
   // eslint-disable-next-line max-len
-  shouldHavePermission: (permission: string) => async (req: Request, res: Response, next: NextFunction) => {
-    const passed = await UserService.userByIdHasPermission(req.userId as number, permission);
+  shouldHaveOneOfPermissions: (...permissions: string[]) => async (req: Request, res: Response, next: NextFunction) => {
+    const passed = await UserService
+      .userByIdHasOneOfPermissions(req.userId as number, ...permissions);
     if (passed) {
       return next();
     }
@@ -54,9 +55,10 @@ export default {
   },
 
   // eslint-disable-next-line max-len
-  shouldHavePermissionOrParamIdBeLoggedUserId: (permission: string) => async (req: Request, res: Response, next: NextFunction) => {
+  shouldHaveOneOfPermissionsOrParamIdBeLoggedUserId: (...permissions: string[]) => async (req: Request, res: Response, next: NextFunction) => {
     if (!req.userId || req.userId !== +req.params.id) {
-      const passed = await UserService.userByIdHasPermission(req.userId as number, permission);
+      const passed = await UserService
+        .userByIdHasOneOfPermissions(req.userId as number, ...permissions);
       if (passed) {
         return next();
       }

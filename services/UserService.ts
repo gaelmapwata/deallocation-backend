@@ -3,11 +3,12 @@ import Role from '../models/Role';
 import User from '../models/User';
 
 export default {
-  async userByIdHasPermission(userId: number, permission: string): Promise<boolean> {
+  async userByIdHasOneOfPermissions(userId: number, ...permissions: string[]): Promise<boolean> {
     const user = await User.findByPk(userId, {
       include: [{ model: Role, include: [Permission] }],
     });
 
-    return !!user?.roles.find((role) => !!role.permissions.find((p) => p.slug === permission || p.slug === `${permission.split(':')[0]}:ALL`));
+    const userPermissions = user?.roles.flatMap((role) => role.permissions);
+    return !!userPermissions?.find((p) => permissions.includes(p.slug));
   },
 };

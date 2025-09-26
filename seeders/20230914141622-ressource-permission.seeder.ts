@@ -3,48 +3,13 @@ import { QueryInterface } from 'sequelize';
 import Permission from '../models/Permission';
 import Ressource from '../models/Ressource';
 import sequelize from '../sequelize-instance';
-
-interface IRessource {
-  name: string;
-  permissions: Array<{
-    name: string;
-    slug: string;
-  }>
-}
-const RESSOURCES: IRessource[] = [
-  {
-    name: 'user',
-    permissions: [
-      { name: 'create', slug: Permission.USER.CREATE },
-      { name: 'update', slug: Permission.USER.UPDATE },
-      { name: 'read', slug: Permission.USER.READ },
-      { name: 'delete', slug: Permission.USER.DELETE },
-      { name: 'all', slug: Permission.USER.ALL },
-    ],
-  },
-  {
-    name: 'role',
-    permissions: [
-      { name: 'create', slug: Permission.ROLE.CREATE },
-      { name: 'update', slug: Permission.ROLE.UPDATE },
-      { name: 'read', slug: Permission.ROLE.READ },
-      { name: 'delete', slug: Permission.ROLE.DELETE },
-      { name: 'all', slug: Permission.ROLE.ALL },
-    ],
-  },
-  {
-    name: 'ressource',
-    permissions: [
-      { name: 'read', slug: Permission.RESSOURCE.READ },
-      { name: 'all', slug: Permission.RESSOURCE.ALL },
-    ],
-  },
-];
+import { RessourceI } from '../types/Ressource';
+import RESSOURCES from './data/ressourcesData';
 
 module.exports = {
   up: () => new Promise((resolve, reject) => {
     // eslint-disable-next-line max-len
-    const saveRessource = async (ressource: IRessource): Promise<void> => new Promise((resolveRessource) => {
+    const saveRessource = async (ressource: RessourceI): Promise<void> => new Promise((resolveRessource) => {
       Ressource.findOrCreate({
         where: { name: ressource.name },
         defaults: { name: ressource.name },
