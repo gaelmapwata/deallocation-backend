@@ -12,8 +12,10 @@
     "lint": "yarn eslint . --ext .ts"
   },
   "dependencies": {
+    "axios": "^1.12.2",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.1",
     "express": "5.1.0",
@@ -24,15 +26,19 @@
     "mysql2": "^3.6.1",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-typescript": "^2.1.6",
+    "xml2js": "^0.6.2",
+    "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^3.0.0",
     "@types/cors": "^2.8.14",
+    "@types/crypto-js": "^4.2.2",
     "@types/express": "^5.0.3",
     "@types/express-form-data": "^2.0.2",
     "@types/node": "^24.3.0",
     "@types/validator": "^13.11.1",
+    "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^8.41.0",
     "@typescript-eslint/parser": "^8.41.0",
     "concurrently": "^9.2.1",

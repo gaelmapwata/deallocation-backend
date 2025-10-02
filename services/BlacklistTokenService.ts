@@ -6,7 +6,7 @@ export default {
     const blacklistedToken = await BlacklistToken.findOne({
       where: {
         token,
-        type: TokenTypeE.LOGIN_TOKEN,
+        type: TokenTypeE.MAIN_TOKEN,
       },
     });
 

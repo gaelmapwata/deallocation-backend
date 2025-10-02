@@ -42,7 +42,7 @@ const ressources: Array<RessourceI & {
 
 const RESSOURCES = ressources.map((ressource) => {
   const permissionsWithDescritption = ressource.permissions.map((permission) => {
-    let description = null;
+    let description: string | undefined;
     if (permission.description) {
       description = permission.description;
     }

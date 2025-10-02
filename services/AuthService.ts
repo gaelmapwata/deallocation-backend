@@ -73,7 +73,7 @@ const AuthService = {
 
     const passwordIsValid = bcrypt.compareSync(
       payload.password,
-      userToLogin.password,
+      'userToLogin.password',
     );
 
     if (!passwordIsValid) {
@@ -117,7 +117,7 @@ const AuthService = {
           throw new AuthInvalidTokenError('Veuillez vous connectez !');
         }
 
-        if (!decoded.type || decoded.type !== TokenTypeE.LOGIN_TOKEN) {
+        if (!decoded.type || decoded.type !== TokenTypeE.MAIN_TOKEN) {
           throw new AuthInvalidTokenError('Token invalid');
         }
 

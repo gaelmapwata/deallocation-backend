@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-shadow
 export enum TokenTypeE {
-  LOGIN_TOKEN = 'LOGIN_TOKEN'
+ PASSWORD_TOKEN = 'PASSWORD_TOKEN',
+ MAIN_TOKEN = 'MAIN_TOKEN',
+ CLIENT_TOKEN='CLIENT_TOKEN'
 }
 
 export interface TokenDecodedI {
