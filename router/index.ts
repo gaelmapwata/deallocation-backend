@@ -4,6 +4,8 @@
 import express, { Request, Response } from 'express';
 import AuthMiddleware from '../middleware/AuthMiddleware';
 import AuthRouter from './AuthRouter';
+import ClientAuth from './ClientAuthRouter';
+import ClientRouter from './ClientRouter';
 import UserRouter from './UserRouter';
 import RoleRouter from './RoleRouter';
 import RessourceRouter from './RessourceRouter';
@@ -15,6 +17,8 @@ router.get('/', (_: Request, res: Response) => {
 });
 
 router.use('/auth', AuthRouter);
+router.use('/client-auth', ClientAuth);
+router.use('/clients', ClientRouter);
 router.use('/users', UserRouter);
 router.use('/roles', RoleRouter);
 router.use('/ressources', RessourceRouter);

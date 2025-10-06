@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/app.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon --delay 1000ms --exec 'node dist/app.js' --watch dist --ext js\"",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\"",
     "test": "yarn test",
     "lint": "yarn eslint . --ext .ts"
   },

@@ -1,25 +1,39 @@
-import { format } from 'date-fns';
+import * as moment from 'moment';
 
-export default {
-  getTodayDate() {
-    return format(new Date(), 'yyyy-MM-dd');
-  },
+class DateUtil {
+  private dateDefaultFormat: string;
 
-  getYesterdayDate() {
-    const today = new Date();
-    today.setDate(today.getDate() - 1);
-    return format(today, 'yyyy-MM-dd');
-  },
+  private timeDefaultFormat: string;
 
-  firstDayOfWeekDate() {
-    const today = new Date();
-    const firstDay = today.setDate(today.getDate() - today.getDay());
-    return format(firstDay, 'yyyy-MM-dd');
-  },
+  constructor() {
+    this.dateDefaultFormat = 'DD-MM-YYYY';
+    this.timeDefaultFormat = 'YYYY-MM-DD HH:mm:ss';
+  }
 
-  lastDayOfWeekDate() {
-    const today = new Date();
-    const lastDay = today.setDate(today.getDate() - today.getDay() + 6);
-    return format(lastDay, 'yyyy-MM-dd');
-  },
-};
+  formatDateDefault(date: Date | null, format?: string): string {
+    return moment.default(date || new Date()).format(format || this.dateDefaultFormat);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  formatDate(date: string | Date | null, format: string): string {
+    if (date === null || date === undefined || date === '') {
+      return '';
+    }
+
+    const parsedDate = typeof date === 'string' ? new Date(date) : date;
+    let result = format;
+
+    const day = parsedDate.getDate();
+    result = result.replace('DD', day < 10 ? `0${day}` : day.toString());
+
+    const month = parsedDate.getMonth() + 1;
+    result = result.replace('MM', month < 10 ? `0${month}` : month.toString());
+
+    const year = parsedDate.getFullYear();
+    result = result.replace('YYYY', year.toString());
+
+    return result;
+  }
+}
+
+export default DateUtil;
