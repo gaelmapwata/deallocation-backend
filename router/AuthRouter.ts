@@ -7,6 +7,11 @@ import RateLimiteMiddleware from '../middleware/RateLimiteMiddleware';
 const router = Router();
 
 router.post('/signin', [RateLimiteMiddleware.rateLimit], AuthController.signin as any);
+router.post(
+  '/check-otp',
+  [AuthMiddleware.verifyPasswordToken, RateLimiteMiddleware.rateLimit],
+  AuthController.checkOtp,
+);
 router.get('/user', [AuthMiddleware.shouldBeLogged], AuthController.getCurrentUser);
 router.post('/logout', [AuthMiddleware.shouldBeLogged], AuthController.logout);
 // eslint-disable-next-line max-len

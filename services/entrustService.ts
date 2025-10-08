@@ -46,7 +46,7 @@ export default {
 
     const headers = {
       'Content-Type': 'text/xml;charset=UTF-8',
-      Authorization: `Basic ${Buffer.from('AUTOALLO:MA7uhdgaQA').toString('base64')}`,
+      Authorization: `Basic ${Buffer.from('GUPAY:waterfall').toString('base64')}`,
     };
 
     try {

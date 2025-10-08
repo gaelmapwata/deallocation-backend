@@ -1,0 +1,55 @@
+2025-10-08 11:51:26 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 11:52:15 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 11:52:15 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 11:53:39 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 11:53:40 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:03:15 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:03:15 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:07:17 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:07:17 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:16:29 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:16:29 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:19:45 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:19:46 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:21:29 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:21:29 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:24:49 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:24:50 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:27:33 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:28:22 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:30:00 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:30:00 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:34:29 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:34:29 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:34:34 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:34:34 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:36:37 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:36:38 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:50:54 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:50:54 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:52:43 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:52:43 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:54:03 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:54:03 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:54:47 | Entrust API | sending Token to Entrust
+2025-10-08 12:55:00 | Auth | user gael.mapwata@ubagroup.com successful logged with otp verification
+2025-10-08 12:57:19 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:57:19 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 12:58:12 | Entrust API | sending Token to Entrust
+2025-10-08 12:58:25 | Auth | user gael.mapwata@ubagroup.com successful logged with otp verification
+2025-10-08 12:59:03 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 12:59:03 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 13:01:45 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 13:01:46 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 13:04:07 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 13:04:07 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 13:05:20 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 13:05:21 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 13:19:06 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 13:19:07 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 13:19:47 | Entrust API | sending Token to Entrust
+2025-10-08 13:19:48 | Auth | user gael.mapwata@ubagroup.com successful logged with otp verification
+2025-10-08 14:41:22 | Auth | user gael.mapwata@ubagroup.com trying to login
+2025-10-08 14:41:22 | Auth | user gael.mapwata@ubagroup.com successful logged with active directory, otp sended
+2025-10-08 14:41:45 | Entrust API | sending Token to Entrust
+2025-10-08 14:41:45 | Auth | user gael.mapwata@ubagroup.com successful logged with otp verification

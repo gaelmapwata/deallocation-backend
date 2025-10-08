@@ -46,5 +46,12 @@ export default class Permission extends Model {
     ALL: 'ROLE:ALL',
   };
 
+  static TRANSACTION = {
+    READ: 'TRANSACTION:READ',
+    EXPORT: 'TRANSACTION:EXPORT',
+    CREATE: 'TRANSACTION:CREATE',
+    ALL: 'TRANSACTION:ALL',
+  };
+
   static RESSOURCE = { READ: 'RESSOURCE:READ', ALL: 'RESSOURCE:ALL' };
 }

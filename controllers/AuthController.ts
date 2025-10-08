@@ -118,7 +118,7 @@ export default {
       const token = jwt.sign(
         {
           id: user.id,
-          type: TokenTypeE.PASSWORD_TOKEN,
+          type: TokenTypeE.MAIN_TOKEN,
         },
         process.env.JWT_SECRET,
         { expiresIn: JWT_PASSWORD_TOKEN_TIME_VALIDITY },
@@ -151,7 +151,7 @@ export default {
 
       LogHelper.info(`Auth | user ${user.email} successful logged with otp verification`);
 
-      await BlacklistToken.create({ token: req.body.token, type: TokenTypeE.PASSWORD_TOKEN });
+      await BlacklistToken.create({ token: req.body.token, type: TokenTypeE.MAIN_TOKEN });
 
       return res.status(200).json({
         token,
