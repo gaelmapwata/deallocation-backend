@@ -1,6 +1,6 @@
 import { Op } from 'sequelize';
 import bcrypt from 'bcryptjs';
-import Client from '../models/Client';
+import Client from '../models/PartnerDetail';
 import { Request } from '../types/ExpressOverride';
 import ClientAuthInvalidPasswordError from '../types/error/ClientAuthInvalidPasswordError';
 import ClientLockedError from '../types/error/ClientLockedError';

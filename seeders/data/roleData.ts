@@ -21,6 +21,10 @@ const ROLES: RoleI[] = [
     name: 'user',
     permissions: [],
   },
+  {
+    name: 'PARTNER',
+    permissions: [],
+  },
 ];
 
 export default ROLES;

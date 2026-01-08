@@ -11,10 +11,7 @@ module.exports = {
       msisdn: {
         type: Sequelize.STRING,
       },
-      lastName: {
-        type: Sequelize.STRING,
-      },
-      firstName: {
+      customerName: {
         type: Sequelize.STRING,
       },
       amount: {
@@ -31,10 +28,27 @@ module.exports = {
       crAcctNum: {
         type: Sequelize.STRING,
       },
-      errorFinacle: {
+      stan: {
         type: Sequelize.STRING,
       },
-      errorAirtelMoney: {
+      tranDateTime: {
+        type: Sequelize.STRING,
+      },
+      processingCode: {
+        type: Sequelize.INTEGER,
+      },
+      countryCode: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      valueDate: {
+        type: Sequelize.DATE,
+      },
+      reservedFld1: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      errorFinacle: {
         type: Sequelize.STRING,
       },
       error: {
@@ -42,6 +56,14 @@ module.exports = {
       },
       success: {
         type: Sequelize.BOOLEAN,
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

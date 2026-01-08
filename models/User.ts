@@ -1,11 +1,12 @@
 import {
-  Table, Column, Model, BelongsToMany, HasMany,
+  Table, Column, Model, BelongsToMany,
   BelongsTo,
   ForeignKey,
 } from 'sequelize-typescript';
 import Role from './Role';
 import Branch from './Branch';
 import UserRole from './UserRole';
+import TypeUser from './TypeUser';
 
 @Table({
   tableName: 'users',
@@ -15,14 +16,22 @@ import UserRole from './UserRole';
 export default class User extends Model {
   static fillable = [
     'email',
+    'password',
     'totalLoginAttempt',
     'locked',
-
+    'createdByUserId',
+    'deletedByUserId',
+    'validationAskedByUserId',
+    'validatedByUserId',
     'branchId',
+    'typeUserId',
   ];
 
   @Column
     email!: string;
+
+  @Column
+    password!: string;
 
   @Column
     totalLoginAttempt!: number;
@@ -50,8 +59,15 @@ export default class User extends Model {
   @Column
     branchId!: number;
 
+  @ForeignKey(() => TypeUser)
+  @Column
+    typeUserId!: number;
+
   @BelongsTo(() => Branch)
     branch!: Branch;
+
+  @BelongsTo(() => TypeUser)
+    typeUser!: TypeUser;
 
   @BelongsToMany(() => Role, () => UserRole)
     roles!: Role[];

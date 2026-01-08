@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { checkSchema } from 'express-validator';
-import Client from '../models/Client';
+import Client from '../models/PartnerDetail';
 import ClientValidator from '../validators/ClientValidator';
 import BcryptUtil from '../utils/BcryptUtil';
 import { handleExpressValidators } from '../utils/ExpressUtil';

@@ -1,5 +1,5 @@
 import ValidatorHelper from './helpers/ValidatorHelper';
-import Client from '../models/Client';
+import Client from '../models/PartnerDetail';
 
 const ClientValidators = {
   signinSchema: {

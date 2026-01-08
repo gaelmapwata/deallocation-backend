@@ -12,11 +12,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      password: {
+        type: Sequelize.STRING,
+      },
       totalLoginAttempt: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
       locked: {
+        type: Sequelize.BOOLEAN,
+      },
+      isPartner: {
         type: Sequelize.BOOLEAN,
       },
       createdByUserId: {
@@ -51,6 +57,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'branches',
+          key: 'id',
+        },
+      },
+      typeUserId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'type_users',
           key: 'id',
         },
       },

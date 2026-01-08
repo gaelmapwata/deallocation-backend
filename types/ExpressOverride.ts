@@ -1,6 +1,6 @@
 import { Request as ExpressRequest } from 'express';
 import User from '../models/User';
-import Client from '../models/Client';
+import Client from '../models/PartnerDetail';
 
 export type Request = ExpressRequest & {
   userId?: number | null,

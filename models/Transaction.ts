@@ -1,8 +1,8 @@
 import {
-  Table, Column, Model, HasOne,
+  Table, Column, Model, ForeignKey, BelongsTo,
 } from 'sequelize-typescript';
 
-import FinacleTransaction from './FinacleTransaction';
+import User from './User';
 
 @Table({
   tableName: 'transactions',
@@ -14,30 +14,41 @@ export default class Transaction extends Model {
   // Propriétés fillable
   static fillable: string[] = [
     'msisdn',
-    'lastName',
-    'firstName',
+    'customerName',
     'amount',
     'currency',
     'drAcctNum',
     'crAcctNum',
+    'stan',
+    'tranDateTime',
+    'processingCode',
+    'countryCode',
+    'valueDate',
+    'reservedFld1',
+    'error',
+    'success',
     'errorFinacle',
     'errorAirtelMoney',
+    'userId',
   ];
 
   @Column
     msisdn!: string;
 
   @Column
-    lastName!: string;
-
-  @Column
-    firstName!: string;
+    customerName!: string;
 
   @Column
     amount!: number;
 
   @Column
     currency!: string;
+
+  @Column
+    stan!: string;
+
+  @Column
+    tranDateTime!: string;
 
   @Column
     errorFinacle!: string;
@@ -57,6 +68,10 @@ export default class Transaction extends Model {
   @Column
     crAcctNum!: string;
 
-  @HasOne(() => FinacleTransaction)
-    finacleTransaction!: FinacleTransaction;
+  @ForeignKey(() => User)
+  @Column
+    userId!: number;
+
+  @BelongsTo(() => User)
+    user!: User;
 }

@@ -4,7 +4,7 @@ import { checkSchema } from 'express-validator';
 import ClientValidator from '../validators/ClientValidator';
 import { Request } from '../types/ExpressOverride';
 import { handleExpressValidators } from '../utils/ExpressUtil';
-import Client from '../models/Client';
+import Client from '../models/PartnerDetail';
 import BlacklistToken from '../models/BlacklistToken';
 import LogHelper from '../utils/logHelper';
 import { TokenTypeE } from '../types/Token';

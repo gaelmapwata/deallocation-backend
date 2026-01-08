@@ -33,4 +33,5 @@ export enum RoleE {
   OPS = 'OPS',
   DOMOPS = 'DOMOPS',
   CSO = 'CSO',
+  PARTNER = 'PARTNER',
 }

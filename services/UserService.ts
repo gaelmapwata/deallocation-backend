@@ -31,4 +31,16 @@ export default {
 
     return !!user.roles.find((role) => role.name === RoleE.ADMIN);
   },
+
+  async userIsPartner(userId: number): Promise<boolean> {
+    const user = await User.findByPk(userId, {
+      include: [Role],
+    });
+
+    if (!user) {
+      return false;
+    }
+
+    return !!user.roles.find((role) => role.name === RoleE.PARTNER);
+  },
 };
