@@ -1,0 +1,87 @@
+2026-01-09 11:31:17 | Auth | user admin@user.com trying to login
+2026-01-09 11:31:36 | Auth | user admin@user.com trying to login
+2026-01-09 11:33:47 | Auth | user admin@user.com trying to login
+2026-01-09 11:41:59 | Auth | user admin@user.com trying to login
+2026-01-09 11:41:59 | Auth | user admin@user.com successfully logged
+2026-01-09 15:44:36 | Auth | user admin@user.com trying to login
+2026-01-09 15:44:36 | Auth | user admin@user.com successfully logged
+2026-01-09 15:45:26 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 15:53:38 | Auth | user admin@user.com trying to login
+2026-01-09 15:53:38 | Auth | user admin@user.com successfully logged
+2026-01-09 15:54:02 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 15:57:07 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:04:03 | Auth | user admin@user.com successfully logged
+2026-01-09 16:04:03 | Auth | user admin@user.com trying to login
+2026-01-09 16:04:20 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:05:10 | Auth | user admin@user.com trying to login
+2026-01-09 16:05:10 | Auth | user admin@user.com successfully logged
+2026-01-09 16:05:25 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:05:50 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:09:21 | Auth | user admin@user.com trying to login
+2026-01-09 16:09:21 | Auth | user admin@user.com successfully logged
+2026-01-09 16:10:13 | Auth | user admin@user.com trying to login
+2026-01-09 16:10:13 | Auth | user admin@user.com successfully logged
+2026-01-09 16:11:27 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:16:12 | Auth | user admin@user.com trying to login
+2026-01-09 16:16:12 | Auth | user admin@user.com successfully logged
+2026-01-09 16:20:06 | Auth | user admin@user.com trying to login
+2026-01-09 16:20:06 | Auth | user admin@user.com successfully logged
+2026-01-09 16:21:46 | Auth | user admin@user.com trying to login
+2026-01-09 16:21:46 | Auth | user admin@user.com successfully logged
+2026-01-09 16:22:47 | Auth | user admin@user.com trying to login
+2026-01-09 16:22:47 | Auth | user admin@user.com successfully logged
+2026-01-09 16:22:59 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:22:59 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:23:06 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:23:06 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:24:20 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:24:20 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:25:14 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:25:14 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:25:40 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:25:40 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:26:08 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:26:08 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:26:48 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:26:48 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:27:26 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:27:26 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:28:25 | Auth | user admin@user.com trying to login
+2026-01-09 16:28:27 | Auth | user admin@user.com successfully logged
+2026-01-09 16:28:51 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:28:51 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:29:12 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:29:12 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:30:25 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:30:25 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:32:16 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:32:16 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:33:22 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:33:22 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:33:59 | Auth | user admin@user.com trying to login
+2026-01-09 16:33:59 | Auth | user admin@user.com successfully logged
+2026-01-09 16:34:21 | Failed to fetch account details for account 990820000842, country CD: Invalid URL
+2026-01-09 16:34:21 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:41:31 | Auth | user admin@user.com trying to login
+2026-01-09 16:41:31 | Auth | user admin@user.com successfully logged
+2026-01-09 16:41:43 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:41:43 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:41:43 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:42:38 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:42:38 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:42:38 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:43:28 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:43:28 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:43:28 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:44:00 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:44:00 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:44:00 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:44:41 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:44:41 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:44:41 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:45:54 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-09 16:45:55 | Failed to fetch account details for account 990820000842, country CD: Account details not found or invalid.
+2026-01-09 16:45:55 | Account details not found for account: 990820000842, country: CD
+2026-01-09 16:48:58 | Auth | user admin@user.com trying to login
+2026-01-09 16:48:58 | Auth | user admin@user.com successfully logged
+2026-01-09 16:49:10 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}

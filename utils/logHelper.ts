@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { Request } from '../types/ExpressOverride';
 
 export default class LogHelper {
-  static info(message: string) {
+  static info(message: string, error: any) {
     const logFilePath = `${path.join(process.cwd(), 'logs', format(new Date(), 'yyyy-MM-dd'))}.log`;
 
     const logFileWriteStream = fs.createWriteStream(logFilePath, { flags: 'a' });

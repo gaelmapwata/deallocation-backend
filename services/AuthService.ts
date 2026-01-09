@@ -1,8 +1,6 @@
 import { Op } from 'sequelize';
-import bcrypt from 'bcryptjs';
 import User from '../models/User';
 import { Request } from '../types/ExpressOverride';
-import AuthInvalidPasswordError from '../types/error/AuthInvalidPasswordError';
 import UserLockedError from '../types/error/UserLockedError';
 import UserNotFoundError from '../types/error/UserNotFoundError';
 import AuthInvalidTokenError from '../types/error/AuthInvalidTokenError';
@@ -14,6 +12,9 @@ import AuthTokenBlacklistedError from '../types/error/AuthTokenBlacklistedError'
 import AuthUserLockedError from '../types/error/AuthUserLockedError';
 import AuthUserNotFoundError from '../types/error/AuthUserNotFoundError';
 import BlacklistTokenService from './BlacklistTokenService';
+import AuthPasswordService from './auth/AuthPasswordService';
+import Branch from '../models/Branch';
+import Bank from '../models/Bank';
 
 // eslint-disable-next-line
 const jwt = require('jsonwebtoken');
@@ -45,44 +46,36 @@ const AuthService = {
   },
 
   async checkUserPasswordValidity(payload: {
-    email?: string,
-    username?: string,
-    password: string,
-  }): Promise<User> {
+  email?: string,
+  username?: string,
+  password: string,
+}): Promise<User> {
     if (!payload.email && !payload.username) {
       throw new UserNotFoundError('Email ou username requis');
     }
 
     const filterQuery: Record<string, string>[] = [];
-    if (payload.email) {
-      filterQuery.push({ email: payload.email });
-    }
-    if (payload.username) {
-      filterQuery.push({ username: payload.username });
-    }
+    if (payload.email) filterQuery.push({ email: payload.email });
+    if (payload.username) filterQuery.push({ username: payload.username });
 
     const userToLogin = await User.findOne({
-      where: {
-        [Op.or]: filterQuery,
-      },
+      where: { [Op.or]: filterQuery },
     });
 
     if (!userToLogin) {
       throw new UserNotFoundError('Compte non trouvé');
     }
 
-    const passwordIsValid = bcrypt.compareSync(
-      payload.password,
-      'userToLogin.password',
-    );
-
-    if (!passwordIsValid) {
-      throw new AuthInvalidPasswordError('Mot de passe invalide');
-    }
-
     if (userToLogin.locked) {
-      throw new UserLockedError('Votre compte est bloqué, veuillez contacter l\'administrateur !');
+      throw new UserLockedError(
+        'Votre compte est bloqué, veuillez contacter l\'administrateur !',
+      );
     }
+
+    await AuthPasswordService.validatePassword(
+      userToLogin,
+      payload.password,
+    );
 
     return userToLogin;
   },
@@ -121,9 +114,27 @@ const AuthService = {
           throw new AuthInvalidTokenError('Token invalid');
         }
 
+        if (!decoded.id) {
+          throw new AuthInvalidTokenError('Token does not contain a valid user ID');
+        }
+
         const user = await User
           .findByPk(decoded.id, {
-            include: [{ model: Role, include: [Permission] }],
+            include: [
+              {
+                model: Role,
+                include: [Permission],
+              },
+              {
+                model: Branch,
+                include: [
+                  {
+                    model: Bank,
+                    attributes: ['bankId'],
+                  },
+                ],
+              },
+            ],
           });
 
         if (!user) {

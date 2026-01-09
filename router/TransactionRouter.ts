@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import ClientAuthMiddleware from '../middleware/ClientAuthMiddleware';
 import AuthMiddleware from '../middleware/AuthMiddleware';
 import TransactionController from '../controllers/TransactionController';
 import Permission from '../models/Permission';
@@ -9,7 +8,7 @@ const router = Router();
 router.post(
   '/',
   [
-    ClientAuthMiddleware.shouldBeLogged,
+    AuthMiddleware.shouldBeLogged,
   ],
   TransactionController.storeTransaction as any,
 );

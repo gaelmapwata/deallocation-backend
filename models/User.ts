@@ -25,6 +25,7 @@ export default class User extends Model {
     'validatedByUserId',
     'branchId',
     'typeUserId',
+    'isPartner',
   ];
 
   @Column
@@ -38,6 +39,9 @@ export default class User extends Model {
 
   @Column
     locked!: boolean;
+
+  @Column
+    isPartner!: boolean;
 
 @ForeignKey(() => User)
   @Column
