@@ -1,0 +1,157 @@
+2026-01-12 11:03:25 | Auth | user admin@user.com trying to login
+2026-01-12 11:03:25 | Auth | user admin@user.com successfully logged
+2026-01-12 11:10:13 | Auth | user admin@user.com trying to login
+2026-01-12 11:10:14 | Auth | user admin@user.com successfully logged
+2026-01-12 11:12:25 | Auth | user admin@user.com trying to login
+2026-01-12 11:12:25 | Auth | user admin@user.com successfully logged
+2026-01-12 11:40:55 | Auth | user admin@user.com trying to login
+2026-01-12 11:40:55 | Auth | user admin@user.com successfully logged
+2026-01-12 11:41:11 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 11:48:13 | Auth | user admin@user.com trying to login
+2026-01-12 11:48:14 | Auth | user admin@user.com successfully logged
+2026-01-12 11:48:27 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 11:50:28 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 11:55:05 | Auth | user admin@user.com trying to login
+2026-01-12 11:55:05 | Auth | user admin@user.com successfully logged
+2026-01-12 11:55:32 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:04:57 | Auth | user admin@user.com trying to login
+2026-01-12 12:04:57 | Auth | user admin@user.com successfully logged
+2026-01-12 12:05:16 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:07:20 | Auth | user admin@user.com trying to login
+2026-01-12 12:07:20 | Auth | user admin@user.com successfully logged
+2026-01-12 12:07:36 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:12:14 | Auth | user admin@user.com trying to login
+2026-01-12 12:12:14 | Auth | user admin@user.com successfully logged
+2026-01-12 12:12:28 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:16:14 | Auth | user admin@user.com trying to login
+2026-01-12 12:16:14 | Auth | user admin@user.com successfully logged
+2026-01-12 12:16:33 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:18:10 | Auth | user admin@user.com trying to login
+2026-01-12 12:18:10 | Auth | user admin@user.com successfully logged
+2026-01-12 12:18:27 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:21:55 | Auth | user admin@user.com trying to login
+2026-01-12 12:21:55 | Auth | user admin@user.com successfully logged
+2026-01-12 12:22:25 | Auth | user admin@user.com trying to login
+2026-01-12 12:22:25 | Auth | user admin@user.com successfully logged
+2026-01-12 12:22:41 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:27:32 | Auth | user admin@user.com trying to login
+2026-01-12 12:27:32 | Auth | user admin@user.com successfully logged
+2026-01-12 12:28:12 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:29:30 | Auth | user admin@user.com trying to login
+2026-01-12 12:29:32 | Auth | user admin@user.com successfully logged
+2026-01-12 12:29:54 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:44:40 | Auth | user admin@user.com trying to login
+2026-01-12 12:44:40 | Auth | user admin@user.com successfully logged
+2026-01-12 12:44:59 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:56:28 | Auth | user admin@user.com trying to login
+2026-01-12 12:56:28 | Auth | user admin@user.com successfully logged
+2026-01-12 12:56:41 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:57:14 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:58:47 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 12:59:38 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:00:32 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:06:59 | Auth | user admin@user.com trying to login
+2026-01-12 13:06:59 | Auth | user admin@user.com successfully logged
+2026-01-12 13:07:11 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:13:14 | Auth | user admin@user.com trying to login
+2026-01-12 13:13:14 | Auth | user admin@user.com successfully logged
+2026-01-12 13:13:30 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:14:19 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:15:11 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:15:52 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:16:31 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:16:48 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:25:20 | Auth | user admin@user.com trying to login
+2026-01-12 13:25:20 | Auth | user admin@user.com successfully logged
+2026-01-12 13:25:34 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:27:34 | Auth | user admin@user.com trying to login
+2026-01-12 13:27:34 | Auth | user admin@user.com successfully logged
+2026-01-12 13:27:48 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842"}
+2026-01-12 13:50:02 | Auth | user admin@user.com trying to login
+2026-01-12 13:50:02 | Auth | user admin@user.com successfully logged
+2026-01-12 13:50:17 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 13:50:53 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 13:51:16 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 13:55:43 | Auth | user admin@user.com trying to login
+2026-01-12 13:55:43 | Auth | user admin@user.com successfully logged
+2026-01-12 13:55:54 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 14:00:39 | Auth | user admin@user.com trying to login
+2026-01-12 14:00:39 | Auth | user admin@user.com successfully logged
+2026-01-12 14:00:50 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 14:01:19 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 14:02:00 | Auth | user admin@user.com trying to login
+2026-01-12 14:02:00 | Auth | user admin@user.com successfully logged
+2026-01-12 14:02:11 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 14:14:17 | Auth | user admin@user.com trying to login
+2026-01-12 14:14:17 | Auth | user admin@user.com successfully logged
+2026-01-12 14:14:37 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","processingCode":50}
+2026-01-12 14:21:27 | Auth | user admin@user.com trying to login
+2026-01-12 14:21:27 | Auth | user admin@user.com successfully logged
+2026-01-12 14:21:42 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:21:43 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:23:26 | Auth | user admin@user.com trying to login
+2026-01-12 14:23:26 | Auth | user admin@user.com successfully logged
+2026-01-12 14:23:42 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:23:42 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:24:47 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:24:48 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:25:40 | Auth | user admin@user.com trying to login
+2026-01-12 14:25:40 | Auth | user admin@user.com successfully logged
+2026-01-12 14:26:10 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:26:11 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:32:21 | Auth | user admin@user.com trying to login
+2026-01-12 14:32:22 | Auth | user admin@user.com successfully logged
+2026-01-12 14:32:35 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:32:35 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:33:23 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:33:24 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:34:06 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:34:07 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:35:01 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:35:01 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:35:41 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:35:42 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:36:07 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:36:07 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (SequelizeDatabaseError: Field 'userId' doesn't have a default value)
+2026-01-12 14:36:35 | Auth | user admin@user.com trying to login
+2026-01-12 14:36:35 | Auth | user admin@user.com successfully logged
+2026-01-12 14:36:45 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:36:45 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function)
+2026-01-12 14:37:23 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:37:23 | Transaction | error occurred when treating transaction (undefined) generated by user (admin@user.com #4), error: (TypeError: Spread syntax requires ...iterable[Symbol.iterator] to be a function)
+2026-01-12 14:38:18 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:38:31 | Auth | user admin@user.com trying to login
+2026-01-12 14:38:31 | Auth | user admin@user.com successfully logged
+2026-01-12 14:38:46 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","lastName":"John","firstName":"Doe","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:39:52 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:40:38 | Auth | user admin@user.com trying to login
+2026-01-12 14:40:38 | Auth | user admin@user.com successfully logged
+2026-01-12 14:40:51 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:42:02 | Auth | user admin@user.com successfully logged
+2026-01-12 14:42:02 | Auth | user admin@user.com trying to login
+2026-01-12 14:42:12 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:43:17 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":10,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:45:00 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:46:10 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 14:46:11 |  sending transaction (3) to Finacle
+2026-01-12 14:47:42 | Transaction Finacle | error occurred on transaction (3), error: AxiosError: Request failed with status code 500}
+2026-01-12 15:23:33 | Auth | user admin@user.com trying to login
+2026-01-12 15:23:33 | Auth | user admin@user.com successfully logged
+2026-01-12 15:23:50 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 15:23:51 |  sending transaction (4) to Finacle
+2026-01-12 15:23:52 | Transaction Finacle | error occurred on transaction (4), error: Transaction not permitted to card holder}
+2026-01-12 15:25:10 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 15:25:11 |  sending transaction (5) to Finacle
+2026-01-12 15:25:11 | Transaction Finacle | error occurred on transaction (5), error: Transaction not permitted to card holder}
+2026-01-12 15:31:22 | Auth | user admin@user.com trying to login
+2026-01-12 15:31:22 | Auth | user admin@user.com successfully logged
+2026-01-12 15:31:36 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 15:31:36 |  sending transaction (6) to Finacle
+2026-01-12 15:31:37 | Transaction Finacle | transaction (6) successfully sended to Finacle
+2026-01-12 15:31:37 | Transaction | transaction (6) generated by user (admin@user.com #4) for msisdn (0810951614)
+2026-01-12 15:35:01 | Auth | user admin@user.com trying to login
+2026-01-12 15:35:02 | Auth | user admin@user.com successfully logged
+2026-01-12 15:35:14 | Transaction | user (admin@user.com #4) started a new transaction, payload: {"msisdn":"0810951614","amount":120,"currency":"USD","accountNumber":"990820000842","reservedFld1":"Deallocation"}
+2026-01-12 15:35:15 |  sending transaction (7) to Finacle
+2026-01-12 15:35:15 | Transaction | error occurred when treating transaction (7) generated by user (admin@user.com #4), error: (Error: Invalid account number)
+2026-01-12 15:35:15 | Transaction Finacle | error occurred on transaction (7), error: Invalid account number}

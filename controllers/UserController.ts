@@ -5,6 +5,8 @@ import UserValidators from '../validators/UserValidator';
 import BcryptUtil from '../utils/BcryptUtil';
 import { handleExpressValidators } from '../utils/ExpressUtil';
 import Role from '../models/Role';
+import BranchService from '../services/BranchService';
+import LogHelper, { userLogIdentifier } from '../utils/logHelper';
 
 export default {
   index: async (req: Request, res: Response) => {
@@ -38,6 +40,16 @@ export default {
     }
   },
 
+  listUsers: async (req: Request, res: Response) => {
+    try {
+      const users = await User.findAll();
+
+      res.status(200).json(users);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   store: [
     checkSchema(UserValidators.storeSchema),
     async (req: Request, res: Response) => {
@@ -45,21 +57,41 @@ export default {
         if (handleExpressValidators(req, res)) {
           return null;
         }
+        let hashedPassword = null;
+        const isPartner = Boolean(req.body.password);
+        const userbelongsToBankOfBranch = await BranchService
+          .userBelongsToBankOfBranch((req as any).user, req.body.branchId);
 
-        const hashedPassword = await BcryptUtil.hashPassword(req.body.password);
+        if (!userbelongsToBankOfBranch) {
+          return res.status(400).json({ msg: 'You should belong to the same bank as the branch' });
+        }
+
+        if (isPartner) {
+          hashedPassword = await BcryptUtil.hashPassword(req.body.password);
+        }
         const user = await User.create({
           ...req.body,
           password: hashedPassword,
+          isPartner,
+          createdByUserId: (req as any).userId,
+          validationAskedByUserId: (req as any).userId,
         }, {
-          fields: User.fillable,
+          fields: User.fillable.concat('createdByUserId', 'validationAskedByUserId'),
         });
 
-        const { roles } = req.body;
-        if (roles) {
-          await user.$add('roles', roles);
+        const { roleId } = (req.body as any);
+        if (roleId) {
+          await user.$add('roles', roleId as number);
+          await user.reload({ include: [Role] });
         }
 
-        return res.status(201).json(user);
+        const userRole = user.roles && user.roles.length
+          ? user.roles[0].name
+          : 'No role';
+
+        LogHelper.info(`User | new user (${req.body.email}) "${userRole}" created by user (${userLogIdentifier(req)})`, '');
+
+        res.status(201).json(user);
       } catch (error) {
         return res.status(500).json(error);
       }
@@ -193,4 +225,30 @@ export default {
       }
     },
   ],
+  validate: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const user = await User.findByPk(id);
+      if (!user) {
+        return res.status(404).json({ msg: 'User not found' });
+      }
+
+      if (user.validationAskedByUserId === (req as any).userId) {
+        return res.status(400).json({ msg: 'You cannot validate accounts initiate by your self' });
+      }
+
+      await User.update({
+        validatedByUserId: (req as any).userId,
+      }, {
+        where: { id },
+      });
+
+      LogHelper.info(`User | user (${user?.email}) validated by user (${userLogIdentifier(req)})`, '');
+
+      res.status(204).json(user);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
 };

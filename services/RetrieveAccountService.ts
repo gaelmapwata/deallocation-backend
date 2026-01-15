@@ -50,7 +50,7 @@ class RetrieveAccountService {
       const { data } = response;
 
       if (!data.Response) {
-        LogHelper.info(`Account details not found for account: ${accountNumber}, country: ${countryCode}`);
+        LogHelper.info(`Account details not found for account: ${accountNumber}, country: ${countryCode}`, '');
         throw new Error('Account details not found or invalid.');
       }
 

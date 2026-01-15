@@ -4,7 +4,7 @@ import { parseString } from 'xml2js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import xmlbuilder from 'xmlbuilder';
 // import { format } from 'date-fns';
-import FinacleTransaction from '../models/FinacleTransaction';
+import Transaction from '../models/Transaction';
 import ActionCodeFinacleUtilities from '../utils/actionCodeFinacle';
 import AppError from '../types/CustomError';
 import LogHelper from '../utils/logHelper';
@@ -12,10 +12,10 @@ import DateUtil from '../utils/DateUtil';
 
 export default {
   // eslint-disable-next-line max-len
-  sendTransaction: (transactionFinacle: FinacleTransaction) => new Promise<{ stan: string, tranDateTime: string, success:string }>((resolve, reject) => {
-    LogHelper.info(`Transaction Finacle | sending transaction (${transactionFinacle.transactionId}) to Finacle`);
+  sendTransaction: (transaction: Transaction) => new Promise<{ stan: string, tranDateTime: string, success:string }>((resolve, reject) => {
+    LogHelper.info(` sending transaction (${transaction.id}) to Finacle`, '');
 
-    const scaledAmount = (parseFloat(String(transactionFinacle.tranAmt)) * 100);
+    const scaledAmount = (parseFloat(String(transaction.amount)) * 100);
     const stan = Number(new Date().getTime().toString().substring(1));
     const tranDateTime = new DateUtil().formatDateDefault(new Date('2022-08-22'), 'YYYYMMDDHHMMSS');
 
@@ -44,14 +44,14 @@ export default {
             <TRAN_AMT>${scaledAmount}</TRAN_AMT>
             <TRAN_SUB_TYPE>BI</TRAN_SUB_TYPE>
             <PROCESSING_CODE>50</PROCESSING_CODE>
-            <TRAN_CRNCY_CODE>${transactionFinacle.tranCrncyCode}</TRAN_CRNCY_CODE>
-            <COUNTRY_CODE>COD</COUNTRY_CODE>
+            <TRAN_CRNCY_CODE>${transaction.currency}</TRAN_CRNCY_CODE>
+            <COUNTRY_CODE>${transaction.countryCode}</COUNTRY_CODE>
             <VALUE_DATE>${new DateUtil().formatDate(new Date('2023-11-15'), 'YYYYMMDD')}</VALUE_DATE>
-            <DR_ACCT_NUM>${transactionFinacle.drAcctNum}</DR_ACCT_NUM>
-            <CR_ACCT_NUM>${transactionFinacle.crAcctNum}</CR_ACCT_NUM>
+            <DR_ACCT_NUM>${transaction.drAcctNum}</DR_ACCT_NUM>
+            <CR_ACCT_NUM>${transaction.crAcctNum}</CR_ACCT_NUM>
             <TERMINAL_NAME_LOC>Terminal</TERMINAL_NAME_LOC>
             <RESERVED_FLD_1>
-              ${transactionFinacle.reservedFld1}
+              ${transaction.reservedFld1}
             </RESERVED_FLD_1>
           </C24TRANREQ>`)
       .up() // End arg0
@@ -65,7 +65,7 @@ export default {
     };
 
     const logOnError = (err: Error | string) => {
-      LogHelper.info(`Transaction Finacle | error occurred on transaction (${transactionFinacle.transactionId}), error: ${err}}`);
+      LogHelper.info(`Transaction Finacle | error occurred on transaction (${transaction.id}), error: ${err}}`, '');
     };
 
     console.log(xmlData);
@@ -84,7 +84,7 @@ export default {
             const messageStatusCode = ActionCodeFinacleUtilities.getActionCodeFinacle(actionCode);
 
             if (messageStatusCode.isvalidate) {
-              LogHelper.info(`Transaction Finacle | transaction (${transactionFinacle.transactionId}) successfully sended to Finacle`);
+              LogHelper.info(`Transaction Finacle | transaction (${transaction.id}) successfully sended to Finacle`, '');
 
               resolve({ stan: stan.toString(), tranDateTime, success: 'true' });
             } else {

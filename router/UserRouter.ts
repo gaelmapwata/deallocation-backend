@@ -14,6 +14,14 @@ router.get(
   ],
   UserController.index,
 );
+router.get(
+  '/list-users',
+  [
+    AuthMiddleware.shouldBeLogged,
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.READ),
+  ],
+  UserController.listUsers,
+);
 router.post(
   '/',
   [
@@ -62,5 +70,12 @@ router.put(
   ],
   UserController.unlockUser,
 );
-
+router.put(
+  '/:id/validate',
+  [
+    AuthMiddleware.shouldBeLogged,
+    AuthMiddleware.shouldHaveOneOfPermissions(Permission.USER.UPDATE),
+  ],
+  UserController.validate as any,
+);
 export default router;

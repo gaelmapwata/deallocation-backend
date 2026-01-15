@@ -28,7 +28,6 @@ export default class Transaction extends Model {
     'error',
     'success',
     'errorFinacle',
-    'errorAirtelMoney',
     'userId',
   ];
 
@@ -54,9 +53,6 @@ export default class Transaction extends Model {
     errorFinacle!: string;
 
   @Column
-    errorAirtelMoney!: string;
-
-  @Column
     error!: string;
 
   @Column
@@ -67,6 +63,12 @@ export default class Transaction extends Model {
 
   @Column
     crAcctNum!: string;
+
+  @Column
+    reservedFld1!: string;
+
+  @Column
+    countryCode!: string;
 
   @ForeignKey(() => User)
   @Column

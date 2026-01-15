@@ -15,12 +15,12 @@ import AuthPasswordService from '../services/auth/AuthPasswordService';
 import UserService from '../services/UserService';
 import errorHandlerService from '../services/ErrorHandlerService';
 import LogHelper from '../utils/logHelper';
-import EntrustService from '../services/entrustService';
+// import EntrustService from '../services/entrustService';
 import { TokenTypeE } from '../types/Token';
 
 const jwt = require('jsonwebtoken');
 
-const JWT_TIME_VALIDITY = 60 * 5;
+const JWT_TIME_VALIDITY = 60 * 55;
 const JWT_PASSWORD_TOKEN_TIME_VALIDITY = 5 * 60;
 const MAX_LOGIN_ATTEMPT = 3;
 
@@ -82,7 +82,7 @@ export default {
         });
       }
 
-      LogHelper.info(`Auth | user ${email} trying to login`);
+      LogHelper.info(`Auth | user ${email} trying to login`, '');
 
       // 🔥 ICI : toute la logique AD / bcrypt est déléguée
       try {
@@ -115,7 +115,7 @@ export default {
 
       await onLoginSuccess(user);
 
-      LogHelper.info(`Auth | user ${email} successfully logged`);
+      LogHelper.info(`Auth | user ${email} successfully logged`, '');
 
       return res.status(200).json({
         msg: 'successful authentication',
@@ -130,14 +130,14 @@ export default {
     try {
       const user = req.passwordAuthData?.user as User;
 
-      const otpValid = await EntrustService.sendEntrustToken(
-        user.email,
-        req.body.otp,
-      );
+      // const otpValid = await EntrustService.sendEntrustToken(
+      //   user.email,
+      //   req.body.otp,
+      // );
 
-      if (!otpValid) {
-        return res.status(401).json({ msg: 'Otp not recognized or expired' });
-      }
+      // if (!otpValid) {
+      //   return res.status(401).json({ msg: 'Otp not recognized or expired' });
+      // }
 
       const token = jwt.sign(
         { id: user.id, type: TokenTypeE.MAIN_TOKEN },
@@ -150,7 +150,7 @@ export default {
         type: TokenTypeE.MAIN_TOKEN,
       });
 
-      LogHelper.info(`Auth | user ${user.email} successful logged with OTP`);
+      LogHelper.info(`Auth | user ${user.email} successful logged with OTP`, '');
 
       return res.status(200).json({ token });
     } catch (error) {

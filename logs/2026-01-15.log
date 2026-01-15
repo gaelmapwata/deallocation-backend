@@ -1,0 +1,56 @@
+2026-01-15 08:08:00 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 08:08:01 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 08:08:07 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 09:13:28 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 09:13:29 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 09:13:36 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 09:20:51 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 09:20:51 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 09:20:57 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 09:30:20 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 09:30:21 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 09:30:26 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 09:47:56 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 09:47:56 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 09:48:02 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 10:00:03 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 10:00:03 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 10:00:08 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 10:47:02 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 10:47:04 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 10:47:17 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 13:15:31 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 13:15:46 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 13:15:55 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 13:15:57 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 13:16:04 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 13:16:04 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 13:16:05 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 13:16:11 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 13:25:36 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 13:25:36 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 13:25:42 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 13:26:39 | User | new user (kevin.mapwata@ubagroup.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 15:37:35 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 15:37:36 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 15:37:42 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 16:06:16 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 16:06:17 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 16:06:23 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 16:31:42 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 16:31:42 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 16:31:49 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 16:39:53 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 16:39:53 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 16:40:06 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 16:45:27 | Auth | user gael.mapwata@ubagroup.com trying to login
+2026-01-15 16:45:27 | Auth | user gael.mapwata@ubagroup.com successfully logged
+2026-01-15 16:45:32 | Auth | user gael.mapwata@ubagroup.com successful logged with OTP
+2026-01-15 16:48:43 | User | new user (SS@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 16:52:20 | User | new user (ddd@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 16:55:29 | User | new user (ddd@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 17:00:01 | User | new user (d@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 17:01:06 | User | new user (f@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 17:02:56 | User | new user (dddd@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 17:10:03 | User | new user (fff@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)
+2026-01-15 17:18:28 | User | new user (sss@gmail.com) "No role" created by user (gael.mapwata@ubagroup.com #3)

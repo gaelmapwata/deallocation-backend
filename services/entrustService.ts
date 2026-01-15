@@ -12,7 +12,7 @@ const agent = new https.Agent({
 
 export default {
   async sendEntrustToken(email: string, clearOtp: string): Promise<boolean> {
-    LogHelper.info('Entrust API | sending Token to Entrust');
+    LogHelper.info('Entrust API | sending Token to Entrust', '');
     const updatedEmail = email.replace('@ubagroup.com', '');
     const xmlData = xmlbuilder.create('soapenv:Envelope', {
       version: '1.0',

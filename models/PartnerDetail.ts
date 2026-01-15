@@ -1,8 +1,9 @@
 import {
-  Table, Column, Model, ForeignKey, BelongsTo,
+  Table, Column, Model, ForeignKey, BelongsTo, HasMany,
 } from 'sequelize-typescript';
 
 import User from './User';
+import PartnerDetailAccount from './PartnerDetailAccount';
 
 @Table({
   tableName: 'partner_details',
@@ -32,4 +33,7 @@ export default class PartnerDetail extends Model {
 
   @BelongsTo(() => User)
     user!: User;
+
+  @HasMany(() => PartnerDetailAccount)
+    partnerDetailAccounts!: PartnerDetailAccount[];
 }
